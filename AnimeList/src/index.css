@@ -1,0 +1,60 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* NAVBAR */
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  padding: 20px 40px;
+  background-color: rgb(49, 48, 48);
+  color: white;
+}
+
+.nav a:first-child {
+  margin-right: auto;
+  font-size: large;
+  font-weight: bold;
+}
+
+.nav a {
+  transition: text-decoration 0.5s ease;
+}
+
+a:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+/* Animecard */
+
+.card {
+  padding: 15px;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.card-img {
+  width: 100px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Animegrid */
+
+.anime-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
