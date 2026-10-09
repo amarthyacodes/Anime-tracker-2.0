@@ -2,8 +2,8 @@ function Navbar() {
   return (
     <>
       <nav className="nav-bar">
-        <a>AnimeList</a>
-        <a>My List</a>
+        <a>AnimeTracker</a>
+        <a>My Anime</a>
         <a>Trending</a>
       </nav>
     </>
