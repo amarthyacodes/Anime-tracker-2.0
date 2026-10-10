@@ -1,7 +1,7 @@
 function AnimeCard(props) {
   return (
     <div className="anime-card">
-      <img className="anime-img" src="/2098972.jpg" alt="anime-img" />
+      <img className="anime-img" src={`${props.imgurl}`} alt="anime-img" />
       <div className="anime-details">
         <h3>{props.title}</h3>
         <p>Date: {props.date}</p>

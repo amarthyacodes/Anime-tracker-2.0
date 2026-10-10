@@ -11,6 +11,7 @@ function AnimeList(props) {
           title={anime.title}
           date={anime.date}
           rating={anime.rating}
+          imgurl={anime.imgurl}
         />
       ))}
     </div>
