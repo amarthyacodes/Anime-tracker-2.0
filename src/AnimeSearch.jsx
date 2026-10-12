@@ -47,6 +47,17 @@ function AnimeSearch() {
   }
 
   async function handleSubmit() {
+    if (title.trim() === "" || anime.date === "" || anime.rating === "") {
+      window.alert("Please enter anime details");
+      return;
+    }
+
+    if (anime.rating < 1 || anime.rating > 10) {
+      window.alert("Rating is between 1 and 10");
+      setAnime((a) => ({ ...a, rating: "" }));
+      return;
+    }
+
     let data;
     try {
       data = await searchAnime(title);
@@ -63,7 +74,7 @@ function AnimeSearch() {
       const newAnime = {
         title: result.title.english || result.title.romaji,
         date: anime.date,
-        rating: anime.rating,
+        rating: Math.round(anime.rating * 10) / 10,
         imgurl: result.coverImage.extraLarge,
       };
       setList((l) => [...l, newAnime]);
@@ -96,7 +107,10 @@ function AnimeSearch() {
         value={anime.rating}
         placeholder="Enter Rating"
         onChange={(e) =>
-          setAnime((a) => ({ ...a, rating: Number(e.target.value) }))
+          setAnime((a) => ({
+            ...a,
+            rating: e.target.value === "" ? "" : Number(e.target.value),
+          }))
         }
       />
       <button onClick={handleSubmit}>Submit</button>
