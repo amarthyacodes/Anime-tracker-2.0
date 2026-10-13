@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import AnimeList from "./AnimeList";
 
 function AnimeSearch() {
@@ -19,6 +19,14 @@ function AnimeSearch() {
       return [];
     }
   });
+
+  useEffect(() => {
+    try {
+      window.localStorage.setItem("animelist", JSON.stringify(list));
+    } catch (err) {
+      console.log(err);
+    }
+  }, [list]);
 
   async function searchAnime(name) {
     const query = `
@@ -85,15 +93,6 @@ function AnimeSearch() {
         imgurl: result.coverImage.extraLarge,
       };
       setList((l) => [...l, newAnime]);
-
-      try {
-        window.localStorage.setItem(
-          "animelist",
-          JSON.stringify([...list, newAnime]),
-        );
-      } catch (err) {
-        console.log(err);
-      }
 
       setTitle("");
       setAnime({
