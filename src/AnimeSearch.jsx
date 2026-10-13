@@ -105,32 +105,43 @@ function AnimeSearch() {
   }
 
   return (
-    <div className="search">
-      <input
-        type="text"
-        placeholder="Enter Anime Name"
-        value={title}
-        onChange={(e) => setTitle((t) => e.target.value)}
-      />
-      <input
-        type="Date"
-        value={anime.date}
-        onChange={(e) => setAnime((a) => ({ ...a, date: e.target.value }))}
-      />
-      <input
-        type="number"
-        value={anime.rating}
-        placeholder="Enter Rating"
-        onChange={(e) =>
-          setAnime((a) => ({
-            ...a,
-            rating: e.target.value === "" ? "" : Number(e.target.value),
-          }))
-        }
-      />
-      <button onClick={handleSubmit}>Submit</button>
+    <>
+      <div className="search">
+        <h3 className="search-heading">Search and add anime to your list</h3>
+        <input
+          className="title-input"
+          type="text"
+          placeholder="Search anime titles"
+          value={title}
+          onChange={(e) => setTitle((t) => e.target.value)}
+        />
+        <div className="search2">
+          <input
+            className="date-input"
+            type="Date"
+            placeholder="YYYY-MM-DD"
+            value={anime.date}
+            onChange={(e) => setAnime((a) => ({ ...a, date: e.target.value }))}
+          />
+          <input
+            className="rating-input"
+            type="number"
+            value={anime.rating}
+            placeholder="Select rating"
+            onChange={(e) =>
+              setAnime((a) => ({
+                ...a,
+                rating: e.target.value === "" ? "" : Number(e.target.value),
+              }))
+            }
+          />
+          <button className="submit" onClick={handleSubmit}>
+            + Add to List
+          </button>
+        </div>
+      </div>
       <AnimeList list={list} />
-    </div>
+    </>
   );
 }
 
