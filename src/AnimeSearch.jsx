@@ -10,7 +10,15 @@ function AnimeSearch() {
   });
 
   const [title, setTitle] = useState("");
-  const [list, setList] = useState([]);
+  const [list, setList] = useState(() => {
+    try {
+      const saved = window.localStorage.getItem("animelist");
+      return saved ? JSON.parse(saved) : [];
+    } catch (err) {
+      console.log(err);
+      return [];
+    }
+  });
 
   async function searchAnime(name) {
     const query = `
@@ -61,7 +69,6 @@ function AnimeSearch() {
     let data;
     try {
       data = await searchAnime(title);
-      console.log(data);
     } catch (err) {
       window.alert("Something went wrong");
       console.log(err);
@@ -78,6 +85,15 @@ function AnimeSearch() {
         imgurl: result.coverImage.extraLarge,
       };
       setList((l) => [...l, newAnime]);
+
+      try {
+        window.localStorage.setItem(
+          "animelist",
+          JSON.stringify([...list, newAnime]),
+        );
+      } catch (err) {
+        console.log(err);
+      }
 
       setTitle("");
       setAnime({
