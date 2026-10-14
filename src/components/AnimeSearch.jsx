@@ -92,6 +92,17 @@ function AnimeSearch(props) {
       window.alert("No such anime");
     } else {
       const result = data.data.Page.media[0];
+      if (
+        list.some(
+          (anime) =>
+            result.title.english === anime.title ||
+            result.title.romaji === anime.title,
+        )
+      ) {
+        window.alert("Anime already exists in your list");
+        return;
+      }
+
       const newAnime = {
         title: result.title.english || result.title.romaji,
         date: anime.date,
