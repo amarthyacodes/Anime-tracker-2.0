@@ -1,0 +1,27 @@
+.anime-details {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 5px;
+  min-width: 0;
+}
+
+.title-rating {
+  padding: 10px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  width: 220px;
+}
+.title-rating > p {
+  margin-left: auto;
+  flex-shrink: 0;
+}
+/*--------------------------------------------*/
+
+.anime-list {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fit, 220px);
+  gap: 30px;
+}

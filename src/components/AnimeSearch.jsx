@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import AnimeList from "./AnimeList";
+import "./AnimeSearch.css";
 
 function AnimeSearch() {
   const [anime, setAnime] = useState({

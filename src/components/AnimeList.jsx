@@ -1,4 +1,5 @@
 import AnimeCard from "./AnimeCard";
+import "./AnimeList.css";
 
 function AnimeList(props) {
   const animes = props.list;

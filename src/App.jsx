@@ -1,8 +1,8 @@
 import React from "react";
-import Navbar from "./Navbar";
-import AnimeCard from "./AnimeCard";
-import AnimeList from "./AnimeList";
-import AnimeSearch from "./AnimeSearch";
+import Navbar from "./components/Navbar";
+import AnimeCard from "./components/AnimeCard";
+import AnimeList from "./components/AnimeList";
+import AnimeSearch from "./components/AnimeSearch";
 
 function App() {
   return (

@@ -1,4 +1,5 @@
 import { Trash2 } from "lucide-react";
+import "./AnimeCard.css";
 
 function AnimeCard(props) {
   return (
