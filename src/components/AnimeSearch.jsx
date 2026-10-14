@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import AnimeList from "./AnimeList";
 import "./AnimeSearch.css";
 
-function AnimeSearch() {
+function AnimeSearch(props) {
   const [anime, setAnime] = useState({
     title: "",
     date: "",
@@ -10,6 +10,7 @@ function AnimeSearch() {
     imgurl: "",
   });
 
+  const searchTerm = props.searchTerm;
   const [title, setTitle] = useState("");
   const [list, setList] = useState(() => {
     //to get anime from local storage
@@ -149,7 +150,7 @@ function AnimeSearch() {
           </button>
         </div>
       </div>
-      <AnimeList list={list} onDelete={deleteAnime} />
+      <AnimeList list={list} onDelete={deleteAnime} searchTerm={searchTerm} />
     </>
   );
 }

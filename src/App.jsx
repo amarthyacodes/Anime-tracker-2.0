@@ -1,14 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "./components/Navbar";
-import AnimeCard from "./components/AnimeCard";
-import AnimeList from "./components/AnimeList";
 import AnimeSearch from "./components/AnimeSearch";
 
 function App() {
+  const [searchTerm, setSearchTerm] = useState("");
+
   return (
     <>
-      <Navbar />
-      <AnimeSearch />
+      <Navbar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+      <AnimeSearch searchTerm={searchTerm} />
     </>
   );
 }
