@@ -11,6 +11,7 @@ function AnimeSearch() {
 
   const [title, setTitle] = useState("");
   const [list, setList] = useState(() => {
+    //to get anime from local storage
     try {
       const saved = window.localStorage.getItem("animelist");
       return saved ? JSON.parse(saved) : [];
@@ -21,6 +22,7 @@ function AnimeSearch() {
   });
 
   useEffect(() => {
+    // for adding anime to localstorage once list is updated
     try {
       window.localStorage.setItem("animelist", JSON.stringify(list));
     } catch (err) {
@@ -28,6 +30,7 @@ function AnimeSearch() {
     }
   }, [list]);
 
+  //function to get anime from anilist api
   async function searchAnime(name) {
     const query = `
                   query ($search: String!) {
@@ -62,6 +65,7 @@ function AnimeSearch() {
     return data;
   }
 
+  //function to handle submit
   async function handleSubmit() {
     if (title.trim() === "" || anime.date === "" || anime.rating === "") {
       window.alert("Please enter anime details");
@@ -92,7 +96,7 @@ function AnimeSearch() {
         rating: Math.round(anime.rating * 10) / 10,
         imgurl: result.coverImage.extraLarge,
       };
-      setList((l) => [...l, newAnime]);
+      setList((l) => [newAnime, ...l]);
 
       setTitle("");
       setAnime({
@@ -102,6 +106,10 @@ function AnimeSearch() {
         imgurl: "",
       });
     }
+  }
+
+  function deleteAnime(name) {
+    setList((l) => l.filter((anime) => anime.title !== name));
   }
 
   return (
@@ -136,11 +144,11 @@ function AnimeSearch() {
             }
           />
           <button className="submit" onClick={handleSubmit}>
-            + Add to List
+            Add to List
           </button>
         </div>
       </div>
-      <AnimeList list={list} />
+      <AnimeList list={list} onDelete={deleteAnime} />
     </>
   );
 }
