@@ -75,7 +75,7 @@
     transform 0.25s;
 }
 
-.filter-buttons:focus {
+.filter-buttons.active {
   background-color: #8c72e2;
 }
 

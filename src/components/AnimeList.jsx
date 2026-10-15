@@ -11,11 +11,11 @@ function AnimeList(props) {
   const searchAnime = animes.filter((anime) =>
     anime.title.toLowerCase().includes(searchTerm.toLowerCase()),
   );
-
+  const filteredAnime = searchAnime.filter(
+    (anime) => anime.status === statusFilter || statusFilter === "All",
+  );
   return animes.length === 0 ? (
     <h3 className="no-anime">No anime added</h3>
-  ) : searchAnime.length === 0 ? (
-    <h3 className="no-anime">No anime found</h3>
   ) : (
     <div className="anime-grid">
       <div className="filter">
@@ -26,25 +26,71 @@ function AnimeList(props) {
           </p>
         </div>
         <div className="filter-buttons-div">
-          <button className="filter-buttons">All</button>
-          <button className="filter-buttons">Watching</button>
-          <button className="filter-buttons">Completed</button>
-          <button className="filter-buttons">On Hold</button>
-          <button className="filter-buttons">Plan to Watch</button>
-          <button className="filter-buttons">Dropped</button>
+          <button
+            className={`filter-buttons ${statusFilter === "All" ? "active" : ""}`}
+            onClick={() => {
+              setStatusFilter("All");
+            }}
+          >
+            All
+          </button>
+          <button
+            className={`filter-buttons ${statusFilter === "Watching" ? "active" : ""}`}
+            onClick={() => {
+              setStatusFilter("Watching");
+            }}
+          >
+            Watching
+          </button>
+          <button
+            className={`filter-buttons ${statusFilter === "Completed" ? "active" : ""}`}
+            onClick={() => {
+              setStatusFilter("Completed");
+            }}
+          >
+            Completed
+          </button>
+          <button
+            className={`filter-buttons ${statusFilter === "On Hold" ? "active" : ""}`}
+            onClick={() => {
+              setStatusFilter("On Hold");
+            }}
+          >
+            On Hold
+          </button>
+          <button
+            className={`filter-buttons ${statusFilter === "Plan to Watch" ? "active" : ""}`}
+            onClick={() => {
+              setStatusFilter("Plan to Watch");
+            }}
+          >
+            Plan to Watch
+          </button>
+          <button
+            className={`filter-buttons ${statusFilter === "Dropped" ? "active" : ""}`}
+            onClick={() => {
+              setStatusFilter("Dropped");
+            }}
+          >
+            Dropped
+          </button>
         </div>
       </div>
       <div className="anime-list">
-        {searchAnime.map((anime, index) => (
-          <AnimeCard
-            key={index}
-            title={anime.title}
-            status={anime.status}
-            rating={anime.rating}
-            imgurl={anime.imgurl}
-            onDelete={onDelete}
-          />
-        ))}
+        {filteredAnime.length === 0 ? (
+          <h3 className="no-anime">No anime found</h3>
+        ) : (
+          filteredAnime.map((anime, index) => (
+            <AnimeCard
+              key={index}
+              title={anime.title}
+              status={anime.status}
+              rating={anime.rating}
+              imgurl={anime.imgurl}
+              onDelete={onDelete}
+            />
+          ))
+        )}
       </div>
     </div>
   );
