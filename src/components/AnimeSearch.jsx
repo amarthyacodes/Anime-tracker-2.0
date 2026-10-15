@@ -5,7 +5,7 @@ import "./AnimeSearch.css";
 function AnimeSearch(props) {
   const [anime, setAnime] = useState({
     title: "",
-    date: "",
+    status: "",
     rating: "",
     imgurl: "",
   });
@@ -69,17 +69,18 @@ function AnimeSearch(props) {
 
   //function to handle submit
   async function handleSubmit() {
-    if (title.trim() === "" || anime.date === "" || anime.rating === "") {
+    if (title.trim() === "" || anime.status === "") {
       window.alert("Please enter anime details");
       return;
     }
 
-    if (anime.rating < 1 || anime.rating > 10) {
-      window.alert("Rating is between 1 and 10");
-      setAnime((a) => ({ ...a, rating: "" }));
-      return;
+    if (anime.rating !== "") {
+      if (anime.rating < 1 || anime.rating > 10) {
+        window.alert("Rating is between 1 and 10");
+        setAnime((a) => ({ ...a, rating: "" }));
+        return;
+      }
     }
-
     let data;
     try {
       data = await searchAnime(title);
@@ -100,13 +101,23 @@ function AnimeSearch(props) {
         )
       ) {
         window.alert("Anime already exists in your list");
+        setTitle("");
+        setAnime({
+          title: "",
+          status: "",
+          rating: "",
+          imgurl: "",
+        });
         return;
       }
 
       const newAnime = {
         title: result.title.english || result.title.romaji,
-        date: anime.date,
-        rating: Math.round(anime.rating * 10) / 10,
+        status: anime.status,
+        rating:
+          anime.rating === ""
+            ? "Not rated"
+            : Math.round(anime.rating * 10) / 10,
         imgurl: result.coverImage.extraLarge,
       };
       setList((l) => [newAnime, ...l]);
@@ -114,7 +125,7 @@ function AnimeSearch(props) {
       setTitle("");
       setAnime({
         title: "",
-        date: "",
+        status: "",
         rating: "",
         imgurl: "",
       });
@@ -136,14 +147,22 @@ function AnimeSearch(props) {
           value={title}
           onChange={(e) => setTitle((t) => e.target.value)}
         />
+
         <div className="search2">
-          <input
-            className="date-input"
-            type="Date"
-            placeholder="YYYY-MM-DD"
-            value={anime.date}
-            onChange={(e) => setAnime((a) => ({ ...a, date: e.target.value }))}
-          />
+          <select
+            className="status-input"
+            value={anime.status}
+            onChange={(e) =>
+              setAnime((a) => ({ ...a, status: e.target.value }))
+            }
+          >
+            <option value="">Status</option>
+            <option value="Watching">Watching</option>
+            <option value="Completed">Completed</option>
+            <option value="On Hold">On Hold</option>
+            <option value="Plan to Watch">Plan to Watch</option>
+            <option value="Dropped">Dropped</option>
+          </select>
           <input
             className="rating-input"
             type="number"

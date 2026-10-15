@@ -62,3 +62,27 @@
 .delete:hover {
   background-color: #dc2626d7;
 }
+
+/*----------------------------------------*/
+
+.anime-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 4.5em;
+}
+
+.status-css {
+  border: 2px solid #322950;
+  border-radius: 10px;
+  width: max-content;
+  padding: 0px 10px;
+  margin-top: auto;
+}
+
+.rating-delete {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

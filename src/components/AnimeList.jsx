@@ -18,7 +18,7 @@ function AnimeList(props) {
           <AnimeCard
             key={index}
             title={anime.title}
-            date={anime.date}
+            status={anime.status}
             rating={anime.rating}
             imgurl={anime.imgurl}
             onDelete={onDelete}

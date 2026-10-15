@@ -9,10 +9,11 @@ function AnimeCard(props) {
       <div className="title-rating">
         <div className="anime-details">
           <h3>{props.title}</h3>
-          <p>{props.date}</p>
+          <p className="status-css">{props.status}</p>
         </div>
         <div className="rating-delete">
-          <p>&#11088; {props.rating}</p>
+          {props.rating !== "Not rated" && <span>⭐ </span>}
+          <p>{props.rating}</p>
           <button
             className="delete"
             onClick={() => props.onDelete(props.title)}
