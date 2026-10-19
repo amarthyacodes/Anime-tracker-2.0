@@ -1,6 +1,6 @@
 import { useState } from "react";
 import AnimeCard from "./AnimeCard";
-import "./AnimeList.css";
+import "../css/AnimeList.css";
 
 function AnimeList(props) {
   const animes = props.list;

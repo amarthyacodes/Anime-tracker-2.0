@@ -1,5 +1,6 @@
 import { Trash2 } from "lucide-react";
-import "./AnimeCard.css";
+import { SquarePen } from "lucide-react";
+import "../css/AnimeCard.css";
 
 function AnimeCard(props) {
   return (

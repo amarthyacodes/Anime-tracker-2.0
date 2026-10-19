@@ -1,4 +1,4 @@
-import "./Navbar.css";
+import "../css/Navbar.css";
 
 function Navbar(props) {
   const searchTerm = props.searchTerm;
