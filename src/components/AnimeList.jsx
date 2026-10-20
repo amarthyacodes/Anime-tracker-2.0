@@ -4,10 +4,16 @@ import "../css/AnimeList.css";
 
 function AnimeList(props) {
   const animes = props.list;
+  const onEdit = props.onEdit;
   const onDelete = props.onDelete;
   const searchTerm = props.searchTerm;
   const [statusFilter, setStatusFilter] = useState("All");
   const [sortFilter, setSortFilter] = useState("");
+  const [editingAnime, setEditingAnime] = useState(null);
+
+  const handleEdit = (title) => {
+    setEditingAnime(animes.find((a) => a.title === title));
+  };
 
   const searchAnime = animes.filter((anime) =>
     anime.title.toLowerCase().includes(searchTerm.toLowerCase()),
@@ -25,7 +31,7 @@ function AnimeList(props) {
       if (a.rating === "Not rated") return 1;
       else if (b.rating === "Not rated") return -1;
       else {
-        a.rating - b.rating;
+        return a.rating - b.rating;
       }
     });
   } else if (sortFilter === "10-1")
@@ -33,7 +39,7 @@ function AnimeList(props) {
       if (a.rating === "Not rated") return 1;
       else if (b.rating === "Not rated") return -1;
       else {
-        b.rating - a.rating;
+        return b.rating - a.rating;
       }
     });
 
@@ -55,9 +61,7 @@ function AnimeList(props) {
             >
               <option value="">Sort</option>
               <option value="A-Z">Title: A-Z</option>
-              <option value="Z-A" selected>
-                Title: Z-A
-              </option>
+              <option value="Z-A">Title: Z-A</option>
               <option value="1-10">Rating: 1-10</option>
               <option value="10-1">Rating: 10-1</option>
             </select>
@@ -126,10 +130,55 @@ function AnimeList(props) {
               rating={anime.rating}
               imgurl={anime.imgurl}
               onDelete={onDelete}
+              handleEdit={handleEdit}
             />
           ))
         )}
       </div>
+      {editingAnime ? (
+        <div className="edit-div">
+          <div className="search2">
+            <select
+              className="status-input"
+              value={editingAnime.status}
+              onChange={(e) =>
+                setEditingAnime((a) => ({ ...a, status: e.target.value }))
+              }
+            >
+              <option value="">Status</option>
+              <option value="Watching">Watching</option>
+              <option value="Completed">Completed</option>
+              <option value="On Hold">On Hold</option>
+              <option value="Plan to Watch">Plan to Watch</option>
+              <option value="Dropped">Dropped</option>
+            </select>
+            <input
+              className="rating-input"
+              type="number"
+              value={editingAnime.rating}
+              placeholder="Select rating"
+              onChange={(e) =>
+                setEditingAnime((a) => ({
+                  ...a,
+                  rating: e.target.value === "" ? "" : Number(e.target.value),
+                }))
+              }
+            />
+            <button className="submit" onClick={() => setEditingAnime(null)}>
+              cancel
+            </button>
+            <button
+              className="submit"
+              onClick={() => {
+                onEdit(editingAnime);
+                setEditingAnime(null);
+              }}
+            >
+              Save Changes
+            </button>
+          </div>
+        </div>
+      ) : null}
     </div>
   );
 }

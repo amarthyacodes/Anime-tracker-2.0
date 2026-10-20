@@ -102,6 +102,10 @@ function AnimeSearch(props) {
     setList((l) => l.filter((anime) => anime.title !== name));
   }
 
+  function editAnime(anime) {
+    setList((l) => l.map((a) => (a.title === anime.title ? anime : a)));
+  }
+
   return (
     <>
       <div className="search">
@@ -146,7 +150,12 @@ function AnimeSearch(props) {
           </button>
         </div>
       </div>
-      <AnimeList list={list} onDelete={deleteAnime} searchTerm={searchTerm} />
+      <AnimeList
+        list={list}
+        onDelete={deleteAnime}
+        onEdit={editAnime}
+        searchTerm={searchTerm}
+      />
     </>
   );
 }

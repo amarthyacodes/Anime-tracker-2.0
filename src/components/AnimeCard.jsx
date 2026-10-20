@@ -21,6 +21,12 @@ function AnimeCard(props) {
           >
             <Trash2 size={16} />
           </button>
+          <button
+            className="edit"
+            onClick={() => props.handleEdit(props.title)}
+          >
+            <SquarePen size={16} />
+          </button>
         </div>
       </div>
     </div>
