@@ -8,6 +8,7 @@ function Navbar(props) {
     <>
       <nav className="nav-bar">
         <a>AnimeTracker</a>
+        <button>toggle</button>
         <input
           className="navbar--search"
           type="text"
@@ -15,7 +16,6 @@ function Navbar(props) {
           placeholder="Search your anime"
           onChange={(e) => setSearchTerm(e.target.value)}
         />
-        <button>toggle</button>
       </nav>
     </>
   );

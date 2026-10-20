@@ -73,4 +73,6 @@
 
 .submit:hover {
   background-color: #a28fde;
+  transform: translateY(-3px);
+  cursor: pointer;
 }

@@ -81,4 +81,21 @@
 
 .filter-buttons:hover {
   transform: translateY(-2px);
+  cursor: pointer;
+}
+
+.sorting {
+  background-color: #0b0f19;
+  color: white;
+  border: 1px solid #303849;
+  border-radius: 8px;
+  padding: 4px;
+  outline: none;
+}
+
+.p-sort {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
 }
