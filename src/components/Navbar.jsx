@@ -1,4 +1,5 @@
 import "../css/Navbar.css";
+import { SunMoon } from "lucide-react";
 
 function Navbar(props) {
   const searchTerm = props.searchTerm;
@@ -8,7 +9,9 @@ function Navbar(props) {
     <>
       <nav className="nav-bar">
         <a>AnimeTracker</a>
-        <button>toggle</button>
+        <button style={{ background: "none", border: "none", color: "white" }}>
+          <SunMoon size={20} />
+        </button>
         <input
           className="navbar--search"
           type="text"
