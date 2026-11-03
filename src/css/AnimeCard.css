@@ -19,8 +19,8 @@
   flex-direction: column;
   align-items: center;
   width: auto;
-  color: white;
-  background-color: #161b2f;
+  color: var(--text-primary);
+  background-color: var(--bg-secondary);
   text-align: center;
 }
 
@@ -108,8 +108,8 @@
 .status-css {
   border: none;
   border-radius: 999px;
-  background-color: #292442;
-  color: #d6c8ff;
+  background-color: var(--bg-status);
+  color: var(--text-status);
 
   width: fit-content;
   padding: 4px 12px;

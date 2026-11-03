@@ -5,5 +5,46 @@
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 body {
-  background-color: #0b0f19;
+  background-color: var(--body);
+}
+
+:root {
+  --body: #0b0f19;
+  --bg-primary: #0b0f19;
+  --bg-secondary: #161b2f;
+  --bg-navbar: #151a2d;
+  --text-primary: #ffffff;
+  --border-color: #303849;
+  --accent: #8c72e2;
+  --focus: #8b5cf6;
+  --bg-search: #0b0f19;
+  --border: #303849;
+  --button: #8c72e2;
+  --button-hover: #a28fde;
+  --bg-status: #292442;
+  --text-status: #d6c8ff;
+}
+
+[data-theme="light"] {
+  --body: #f5f6fa;
+
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fc;
+  --bg-search: #ffffff;
+  --bg-navbar: #ffffff;
+
+  --text-primary: #242438;
+  --text-secondary: #77778a;
+
+  --border: #e5e7eb;
+  --border-color: #e5e7eb;
+
+  --accent: #7957d5;
+  --focus: #7957d5;
+
+  --button: #7957d5;
+  --button-hover: #6845c4;
+
+  --bg-status: #eee9ff;
+  --text-status: #6949bd;
 }

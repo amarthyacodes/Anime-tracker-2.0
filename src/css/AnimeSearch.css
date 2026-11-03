@@ -8,17 +8,17 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: white;
-  background-color: #161b2f;
+  color: var(--text-primary);
+  background-color: var(--bg-secondary);
 }
 
 .title-input {
   margin-top: 20px;
   width: 100%;
   max-width: 500px;
-  background-color: #0b0f19;
-  color: white;
-  border: 1px solid #303849;
+  background-color: var(--bg-search);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
   border-radius: 8px;
   padding: 12px;
   outline: none;
@@ -27,9 +27,9 @@
 .status-input {
   width: 70%;
   max-width: 500px;
-  background-color: #0b0f19;
-  color: white;
-  border: 1px solid #303849;
+  background-color: var(--bg-search);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
   border-radius: 8px;
   padding: 12px;
   outline: none;
@@ -38,19 +38,19 @@
 .rating-input {
   width: 70%;
   max-width: 500px;
-  background-color: #0b0f19;
-  color: white;
-  border: 1px solid #303849;
+  background-color: var(--bg-search);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
   border-radius: 8px;
   padding: 12px;
   outline: none;
 }
 
 .title-input:focus {
-  border-color: #8b5cf6;
+  border-color: var(--focus);
 }
 .rating-input:focus {
-  border-color: #8b5cf6;
+  border-color: var(--focus);
 }
 
 .search2 {
@@ -61,18 +61,18 @@
 
 .submit {
   width: 70%;
-  background-color: #8c72e2;
+  background-color: var(--button);
   border: none;
-  color: white;
+  color: var(--text-primary);
   border-radius: 8px;
-  border: 1px solid #303849;
+  border: 1px solid var(--border);
   font-size: 1.1rem;
   padding: 12px;
   transition: all 0.25s ease;
 }
 
 .submit:hover {
-  background-color: #a28fde;
+  background-color: var(--button-hover);
   transform: translateY(-3px);
   cursor: pointer;
 }

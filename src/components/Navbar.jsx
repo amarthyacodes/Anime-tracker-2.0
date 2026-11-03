@@ -4,12 +4,19 @@ import { SunMoon } from "lucide-react";
 function Navbar(props) {
   const searchTerm = props.searchTerm;
   const setSearchTerm = props.setSearchTerm;
+  const theme = props.theme;
+  const setTheme = props.setTheme;
 
   return (
     <>
       <nav className="nav-bar">
         <a>AnimeTracker</a>
-        <button style={{ background: "none", border: "none", color: "white" }}>
+        <button
+          className="theme"
+          onClick={() =>
+            theme === "dark" ? setTheme("light") : setTheme("dark")
+          }
+        >
           <SunMoon size={20} />
         </button>
         <input
