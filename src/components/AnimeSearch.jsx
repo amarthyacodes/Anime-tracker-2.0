@@ -13,6 +13,7 @@ function AnimeSearch(props) {
 
   const searchTerm = props.searchTerm;
   const [title, setTitle] = useState("");
+  const [loading, setLoading] = useState(false);
   const [list, setList] = useState(() => {
     //to get anime from local storage
     try {
@@ -49,11 +50,14 @@ function AnimeSearch(props) {
     }
     let data;
     try {
+      setLoading(true);
       data = await searchAnime(title);
     } catch (err) {
       window.alert("Something went wrong");
       console.log(err);
       return;
+    } finally {
+      setLoading(false);
     }
     if (data.data.Page.media.length === 0) {
       window.alert("No such anime");
@@ -145,8 +149,8 @@ function AnimeSearch(props) {
               }))
             }
           />
-          <button className="submit" onClick={handleSubmit}>
-            Add to List
+          <button className="submit" onClick={handleSubmit} disabled={loading}>
+            {loading ? "Searching..." : "Add to list"}
           </button>
         </div>
       </div>
