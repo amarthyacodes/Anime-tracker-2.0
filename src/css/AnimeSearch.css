@@ -76,3 +76,18 @@
   transform: translateY(-3px);
   cursor: pointer;
 }
+
+@media (max-width: 600px) {
+  .search2 {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .status-input,
+  .rating-input,
+  .submit {
+    width: 100%;
+  }
+}

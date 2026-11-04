@@ -124,3 +124,24 @@
   justify-content: center;
   align-items: center;
 }
+
+/*----------------------------------------*/
+
+@media (hover: none) {
+  .delete,
+  .edit {
+    opacity: 1;
+    width: 40px;
+    height: 40px;
+  }
+  .edit {
+    top: 60px;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .anime-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(40, 40, 40, 0.3);
+  }
+}

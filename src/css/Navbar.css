@@ -34,7 +34,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
+  flex-shrink: 0;
   width: 40px;
   height: 40px;
 
@@ -53,4 +53,22 @@
 
 .theme:hover {
   transform: rotate(20deg);
+}
+
+/*-----------------------------------------*/
+
+@media (max-width: 600px) {
+  .nav-bar {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .nav-bar > :first-child {
+    margin-right: auto;
+  }
+  .navbar--search {
+    width: 100%;
+    max-width: none;
+  }
 }
