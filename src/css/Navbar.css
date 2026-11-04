@@ -9,6 +9,8 @@
 }
 
 .nav-bar > :first-child {
+  font-weight: bold;
+
   margin-right: auto;
   font-size: 1.5rem;
 }

@@ -137,7 +137,13 @@ function AnimeList(props) {
       </div>
       {editingAnime ? (
         <div className="edit-div">
-          <div className="search2">
+          <div className="edit-popup">
+            <img
+              className="edit-img"
+              src={`${editingAnime.imgurl}`}
+              alt="anime-img"
+            />
+            <p className="edit-title">{editingAnime.title} </p>
             <select
               className="status-input"
               value={editingAnime.status}
@@ -164,18 +170,20 @@ function AnimeList(props) {
                 }))
               }
             />
-            <button className="submit" onClick={() => setEditingAnime(null)}>
-              cancel
-            </button>
-            <button
-              className="submit"
-              onClick={() => {
-                onEdit(editingAnime);
-                setEditingAnime(null);
-              }}
-            >
-              Save Changes
-            </button>
+            <div className="edit-buttons">
+              <button className="submit" onClick={() => setEditingAnime(null)}>
+                Cancel
+              </button>
+              <button
+                className="submit"
+                onClick={() => {
+                  onEdit(editingAnime);
+                  setEditingAnime(null);
+                }}
+              >
+                Save Changes
+              </button>
+            </div>
           </div>
         </div>
       ) : null}

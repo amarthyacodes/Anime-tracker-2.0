@@ -34,6 +34,7 @@ body {
   --bg-navbar: #ffffff;
 
   --text-primary: #242438;
+  --text-teritiary: #ffffff;
   --text-secondary: #77778a;
 
   --border: #e5e7eb;
@@ -42,7 +43,7 @@ body {
   --accent: #7957d5;
   --focus: #7957d5;
 
-  --button: #7957d5;
+  --button: #8e75d3;
   --button-hover: #6845c4;
 
   --bg-status: #eee9ff;

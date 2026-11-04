@@ -60,6 +60,8 @@
 
 .filter-buttons-div {
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   gap: 30px;
 }
 
@@ -77,6 +79,7 @@
 
 .filter-buttons.active {
   background-color: var(--button);
+  color: var(--text-teritiary);
 }
 
 .filter-buttons:hover {
@@ -98,4 +101,60 @@
   gap: 5px;
   align-items: center;
   justify-content: center;
+}
+
+.edit-div {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(6px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.edit-popup {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+
+  width: 90%;
+  max-width: 420px;
+
+  padding: 30px;
+
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.35);
+}
+
+.edit-img {
+  width: 150px;
+  height: 200px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+.edit-title {
+  color: var(--text-primary);
+  font-weight: bold;
+  font-size: 1.7rem;
+}
+
+.edit-buttons {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+.edit-buttons button {
+  flex: 1;
+  white-space: nowrap;
 }
