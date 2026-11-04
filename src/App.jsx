@@ -6,14 +6,14 @@ function App() {
   const [searchTerm, setSearchTerm] = useState("");
   const [theme, setTheme] = useState(() => {
     if (localStorage.getItem("theme") !== null) {
-      localStorage.getItem("theme");
+      return localStorage.getItem("theme");
     } else {
-      ("dark");
+      return "dark";
     }
   });
 
   useEffect(() => {
-    localStorage.setItem("theme", JSON.stringify(theme));
+    localStorage.setItem("theme", theme);
   }, [theme]);
 
   useEffect(() => {
