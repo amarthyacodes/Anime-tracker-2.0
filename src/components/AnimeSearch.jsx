@@ -150,7 +150,7 @@ function AnimeSearch(props) {
             }
           />
           <button className="submit" onClick={handleSubmit} disabled={loading}>
-            {loading ? "Searching..." : "Add to Lsist"}
+            {loading ? "Searching..." : "Add to List"}
           </button>
         </div>
       </div>
